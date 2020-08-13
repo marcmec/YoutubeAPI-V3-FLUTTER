@@ -41,9 +41,12 @@ class HomePage extends StatelessWidget {
                 ),
                 onPressed: () {
                   Navigator.of(context).push(new MaterialPageRoute(
-                    builder: (BuildContext context)=> new VideoPlayList(
-                      url:"https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PLFlfI-YjrJuRazkbnVC1tkRDVKeOBjgAu&maxResults=10&key="+"YOUR_API_KEY",title: "YOUTUBE",)
-                  ));
+                      builder: (BuildContext context) => new VideoPlayList(
+                            url:
+                                "https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PLlBnICoI-g-d-v_fWlkZX2HRgHHPnJx9s&maxResults=10&key=" +
+                                    "AIzaSyB07Y7jYTeg331vqjPSlbp8WVMZSWdFofA",
+                            title: "YOUTUBE",
+                          )));
                 },
               ),
             ],

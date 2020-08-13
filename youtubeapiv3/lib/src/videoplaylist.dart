@@ -9,7 +9,7 @@ class VideoPlayList extends StatefulWidget {
   final String title;
   final String url;
   //apikey AIzaSyC8R3c_heItD8yntPYvWQS88zBEn8XUGyY
-  //playlist id PLFlfI-YjrJuRazkbnVC1tkRDVKeOBjgAu
+  //playlist id PLlBnICoI-g-d-v_fWlkZX2HRgHHPnJx9s
   @override
   _StatePLaylist createState() => new _StatePLaylist();
 }
@@ -57,17 +57,14 @@ class ListVideo extends StatelessWidget {
           child: new Column(
             children: <Widget>[
               new Container(
-                height: 160,
-                width: 260,
+                  height: 160,
+                  width: 260,
                   decoration: new BoxDecoration(
-                image: new DecorationImage(
-                  image: new NetworkImage(
-                    list[index]["snippet"]["thumbnails"]["high"]["url"]
-                  ),
-                  fit: BoxFit.cover
-                ),
-              )),
-
+                    image: new DecorationImage(
+                        image: new NetworkImage(list[index]["snippet"]
+                            ["thumbnails"]["high"]["url"]),
+                        fit: BoxFit.cover),
+                  )),
               Text(list[index]["snippet"]["title"]),
             ],
           ),
