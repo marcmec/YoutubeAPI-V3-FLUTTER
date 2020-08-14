@@ -3,6 +3,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:url_launcher/url_launcher.dart';
 
 class VideoPlayList extends StatefulWidget {
   VideoPlayList({this.title, this.url});
@@ -43,6 +44,12 @@ class _StatePLaylist extends State<VideoPlayList> {
   }
 }
 
+Future<void> executeVideo(String url) async {
+  if (await canLaunch(url)) {
+    await launch(url);
+  }
+}
+
 class ListVideo extends StatelessWidget {
   final List list;
   ListVideo({this.list});
@@ -56,15 +63,21 @@ class ListVideo extends StatelessWidget {
           padding: EdgeInsets.all(10),
           child: new Column(
             children: <Widget>[
-              new Container(
-                  height: 160,
-                  width: 260,
-                  decoration: new BoxDecoration(
-                    image: new DecorationImage(
-                        image: new NetworkImage(list[index]["snippet"]
-                            ["thumbnails"]["high"]["url"]),
-                        fit: BoxFit.cover),
-                  )),
+              GestureDetector(
+                  onTap: () {
+                    executeVideo("https://www.youtube.com/watch?v=" +
+                        list[index]["snippet"]["resourceId"]["videoId"]
+                            .toString());
+                  },
+                  child: new Container(
+                      height: 160,
+                      width: 260,
+                      decoration: new BoxDecoration(
+                        image: new DecorationImage(
+                            image: new NetworkImage(list[index]["snippet"]
+                                ["thumbnails"]["high"]["url"]),
+                            fit: BoxFit.cover),
+                      ))),
               Text(list[index]["snippet"]["title"]),
             ],
           ),

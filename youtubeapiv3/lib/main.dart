@@ -45,7 +45,7 @@ class HomePage extends StatelessWidget {
                             url:
                                 "https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PLlBnICoI-g-d-v_fWlkZX2HRgHHPnJx9s&maxResults=10&key=" +
                                     "AIzaSyB07Y7jYTeg331vqjPSlbp8WVMZSWdFofA",
-                            title: "YOUTUBE",
+                            title: "Playlist of Youtube",
                           )));
                 },
               ),
